@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import ApplicationForm
 from .models import DataBase
+from django.contrib import messages
 
 def index(request):
     if request.method == "POST":
@@ -14,4 +15,5 @@ def index(request):
             DataBase.objects.create(first_name=first_name, 
                                     last_name=last_name, email=email, 
                                     date=date, occupation=occupation)
+            messages.success(request, "Form Submitted Successfuly!")
     return render(request, "index.html")
