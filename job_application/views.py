@@ -41,6 +41,7 @@ The hiring team"""
 
 def about(request):
     return render(request, "about.html")
+<<<<<<< HEAD
 
 @receiver(post_save, sender=DataBase)
 def send_interview_date_change(sender, instance, created, **kwargs):
@@ -55,3 +56,5 @@ The Hiring Team."""
             from_email = settings.DEFAULT_FROM_EMAIL
             to_email = instance.email
             send_mail(subject, message, from_email, [to_email])
+=======
+>>>>>>> 0f01bc12a80e76968822ae6b6bd01c8425afdbec
