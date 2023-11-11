@@ -1,8 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .forms import ApplicationForm
 from .models import DataBase
 from django.contrib import messages
 from django.core.mail import EmailMessage
+from django.core.mail import send_mail
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.contrib.auth.models import User
+from django.conf import settings
 
 def index(request):
     if request.method == "POST":
@@ -36,3 +41,17 @@ The hiring team"""
 
 def about(request):
     return render(request, "about.html")
+
+@receiver(post_save, sender=DataBase)
+def send_interview_date_change(sender, instance, created, **kwargs):
+    if not created:
+        if instance._state.db or (hasattr(instance, 'user') and instance.user and instance.user.is_staff):
+            subject = 'Interview Date Updated'
+            message = f"""Dear {str(instance)},
+We have changed the date of our interview to {instance.date}. We are sorry
+for this change, if you have any queries or any difficulties to join,
+please reply to this email. Note that we may take from 2 to 3 business days to reply back.
+The Hiring Team."""
+            from_email = settings.DEFAULT_FROM_EMAIL
+            to_email = instance.email
+            send_mail(subject, message, from_email, [to_email])
