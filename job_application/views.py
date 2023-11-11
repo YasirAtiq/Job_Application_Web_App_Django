@@ -41,7 +41,6 @@ The hiring team"""
 
 def about(request):
     return render(request, "about.html")
-
 @receiver(post_save, sender=DataBase)
 def send_interview_date_change(sender, instance, created, **kwargs):
     if not created:
