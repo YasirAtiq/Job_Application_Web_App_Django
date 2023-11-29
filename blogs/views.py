@@ -1,5 +1,6 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+"""The Front-End View of the App 'blogs'"""
+from django.views import generic
 
-def index(request):
-    return HttpResponse("Hello World!")
+class BlogList(generic.ListView):
+    template_name = "blogs_list.html"
+    model = None

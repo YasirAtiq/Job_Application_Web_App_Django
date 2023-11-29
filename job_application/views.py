@@ -3,10 +3,8 @@ from .forms import ApplicationForm
 from .models import DataBase
 from django.contrib import messages
 from django.core.mail import EmailMessage
-from django.core.mail import send_mail
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
-from django.conf import settings
 
 def index(request):
     if request.method == "POST":
