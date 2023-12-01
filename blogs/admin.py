@@ -10,10 +10,10 @@ class BlogsAdmin(admin.ModelAdmin):
     search_fields = ("title", "description")
     list_filter = ("title", )
     inlines = [BlogImageInline]
-    prepopulated_fields = {"thumbnail_img": ("title", )}  # You can use a different field if needed
+    prepopulated_fields = {"thumbnail_img": ("title", )}
     fieldsets = (
         (None, {
-            'fields': ('title', 'description', 'content', 'thumbnail_img')
+            'fields': ('title', 'description', 'content', 'thumbnail_img', 'date_created')
         }),
     )
     readonly_fields = ("date_created", )
