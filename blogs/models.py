@@ -2,6 +2,7 @@
 from django.db import models
 
 
+
 class Blogs(models.Model):
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=500, null=True)
