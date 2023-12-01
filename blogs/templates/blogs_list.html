@@ -1,4 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-Hello World!
+<h1 class="mb-4 mt-4">Our Blogs: </h1>
+<ul class="list-unstyled">
+  {% for blog in blogs %}
+      <li>
+        <img src="{{ blog.thumbnail_img.url }}" alt="thumbnail_img" class="img-thumbnail" style="width: 150px; height: 100px;">
+        <h2 class="pt-6"><a href="{% url 'blog' pk=blog.pk %}">{{ blog.title }}</a></h3>
+        <p><b>Date Created: {{ blog.date_created }}</b></p>
+        <p><b>{{ blog.description }}</b></p>
+      </li>
+    
+  {% endfor %}
+</ul>
 {% endblock %}

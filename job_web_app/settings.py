@@ -132,3 +132,7 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = getenv("USERNAME_1")
 EMAIL_HOST_PASSWORD = getenv("PASSWORD")
 EMAIL_USE_TLS = True
+
+# Used for images.
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
