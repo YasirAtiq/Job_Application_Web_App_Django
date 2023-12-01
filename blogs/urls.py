@@ -1,7 +1,7 @@
-"""URL Configuration for application: "blogs" """
+from .views import BlogListView, BlogDetailView
 from django.urls import path
-from . import views
 
 urlpatterns = [
-    path("", views.BlogList.as_view(), name="blogs_list"),
+    path("", BlogListView.as_view(), name="blogs_list"),
+    path("<int:pk>/", BlogDetailView.as_view(), name="blog"),
 ]
