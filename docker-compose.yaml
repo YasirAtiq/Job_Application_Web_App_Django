@@ -1,9 +1,10 @@
 version: '2.23'
 
 services:
-  job-application:
-    image: django-docker:0.0.1
-    build: .
+  web:
+    image: yasiratiq/job-application-app:latest
+    volumes:
+      - ./static:/static
+
     ports:
-      - "8000:8000"
-      
+      - 8000:8000
