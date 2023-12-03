@@ -5,6 +5,7 @@ services:
     image: yasiratiq/job-application-app:latest
     volumes:
       - ./static:/static
+      - ./media:/media
 
     ports:
-      - 8000:8000
+      - "8000:8000"
