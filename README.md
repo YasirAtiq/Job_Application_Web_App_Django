@@ -17,15 +17,15 @@ the application sends an email saying that the interview date has changed. If th
 ## Dockerizing this Project
 In this repository, you can find 3 files related to dockerizing this project; "Dockerfile", ".dockerignore" and "docker-compose.yaml". Docker is a DevOp tool where a certain task with a program is done in many isolated 'containers'. Docker helps to check if a program is functioning outside of your system etc. So, to run this, you can either:
 * Use the image: 'yasiratiq/job-application-app:latest' or simply 'yasiratiq/job-application-app' to run this with docker:
-  ```
-   docker run --tag=your_tag_name -e USERNAME_1=your_gmail_account -e PASSWORD=app_password_to_USERNAME_1 -p 8000:8000 yasiratiq/job-application-app
+  ```bash
+   docker run -e USERNAME_1=your_gmail_account -e PASSWORD=app_password_to_USERNAME_1 -p 8000:8000 yasiratiq/job-application-app
   ```
 * Make a separate image with the Dockerfile provided with:
-    ```
+    ```bash
     docker build --tag=name_of_your_image:latest .
     ```
 * Make an image or use my image then supply that in the 'docker-compose.yaml' file then run:
-    ```
+    ```bash
     docker-compose up -d --build
     ```
 ## Blogs
@@ -39,7 +39,7 @@ I have added another app to this website, if you click on the blogs section of t
 - tzdata==2023.3
 
 Assuming that you have cloned the git repo and are in that repo folder, you can install these by the command:
-```
+```bash
 pip install -r requirements.txt
 ```
 
