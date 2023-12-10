@@ -18,7 +18,7 @@ the application sends an email saying that the interview date has changed. If th
 In this repository, you can find 3 files related to dockerizing this project; "Dockerfile", ".dockerignore" and "docker-compose.yaml". Docker is a DevOp tool where a certain task with a program is done in many isolated 'containers'. Docker helps to check if a program is functioning outside of your system etc. So, to run this, you can either:
 * Use the image: 'yasiratiq/job-application-app:latest' or simply 'yasiratiq/job-application-app' to run this with docker:
   ```
-   docker run --tag=your_tag_name -e USERNAME_1=your_gmail_account -e PASSWORD=app_password_to_USERNAME_1 -p 8000:8000 yasiratiq/job-application-app
+   docker run -e USERNAME_1=your_gmail_account -e PASSWORD=app_password_to_USERNAME_1 -p 8000:8000 yasiratiq/job-application-app
   ```
 * Make a separate image with the Dockerfile provided with:
     ```
